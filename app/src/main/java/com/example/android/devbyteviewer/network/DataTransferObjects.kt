@@ -54,6 +54,7 @@ data class NetworkVideo(
 /**
  * Convert Network results to database objects
  */
+<<<<<<< HEAD
 fun NetworkVideoContainer.asDomainModel(): List<Video> {
     return videos.map {
         Video(
@@ -62,11 +63,23 @@ fun NetworkVideoContainer.asDomainModel(): List<Video> {
                 url = it.url,
                 updated = it.updated,
                 thumbnail = it.thumbnail)
+=======
+
+fun NetworkVideoContainer.asDomainModel(): List<Video> {
+    return videos.map {
+        Video(
+            title = it.title,
+            description = it.description,
+            url = it.url,
+            updated = it.updated,
+            thumbnail = it.thumbnail)
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
     }
 }
 
 fun NetworkVideoContainer.asDatabaseModel(): Array<DatabaseVideo> {
     return videos.map {
+<<<<<<< HEAD
         DatabaseVideo(
                 title = it.title,
                 description = it.description,
@@ -75,3 +88,14 @@ fun NetworkVideoContainer.asDatabaseModel(): Array<DatabaseVideo> {
                 thumbnail = it.thumbnail)
     }.toTypedArray()
 }
+=======
+        DatabaseVideo (
+            title = it.title,
+            description = it.description,
+            url = it.url,
+            updated = it.updated,
+            thumbnail = it.thumbnail)
+    }.toTypedArray()
+}
+
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f

@@ -18,6 +18,7 @@
 package com.example.android.devbyteviewer.viewmodels
 
 import android.app.Application
+<<<<<<< HEAD
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -27,6 +28,11 @@ import com.example.android.devbyteviewer.repository.VideosRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+=======
+import androidx.lifecycle.*
+import com.example.android.devbyteviewer.database.getDatabase
+import com.example.android.devbyteviewer.repository.VideosRepository
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
 import kotlinx.coroutines.launch
 
 /**
@@ -41,6 +47,7 @@ import kotlinx.coroutines.launch
  */
 class DevByteViewModel(application: Application) : AndroidViewModel(application) {
 
+<<<<<<< HEAD
     /**
      *
      */
@@ -55,6 +62,11 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
     /**
      * init{} is called immediately when this ViewModel is created.
      */
+=======
+    private val database = getDatabase(application)
+
+    private val videosRepository = VideosRepository(database)
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
     init {
         viewModelScope.launch {
             videosRepository.refreshVideos()
@@ -63,6 +75,7 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
 
     val playlist = videosRepository.videos
 
+<<<<<<< HEAD
     /**
      */
 
@@ -71,6 +84,10 @@ class DevByteViewModel(application: Application) : AndroidViewModel(application)
      */
     class Factory(val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+=======
+    class Factory(val app: Application) : ViewModelProvider.Factory {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
             if (modelClass.isAssignableFrom(DevByteViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
                 return DevByteViewModel(app) as T

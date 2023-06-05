@@ -19,10 +19,24 @@ package com.example.android.devbyteviewer.database
 
 import android.content.Context
 import androidx.lifecycle.LiveData
+<<<<<<< HEAD
 import androidx.room.*
 
 @Dao
 interface VideoDao {
+=======
+import androidx.room.Dao
+import androidx.room.Database
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Room
+import androidx.room.RoomDatabase
+
+
+@Dao
+interface VideoDao{
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
     @Query("select * from databasevideo")
     fun getVideos(): LiveData<List<DatabaseVideo>>
 
@@ -31,6 +45,7 @@ interface VideoDao {
 }
 
 @Database(entities = [DatabaseVideo::class], version = 1)
+<<<<<<< HEAD
 abstract class VideosDatabase : RoomDatabase() {
     abstract val videoDao: VideoDao
 }
@@ -43,7 +58,25 @@ fun getDatabase(context: Context): VideosDatabase {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
                     VideosDatabase::class.java,
                     "videos").build()
+=======
+abstract class Videosdatabase : RoomDatabase(){
+    abstract val videoDao: VideoDao
+}
+private lateinit var INSTANCE: Videosdatabase
+
+fun getDatabase(context: Context): Videosdatabase{
+    synchronized(Videosdatabase::class.java) {
+        if (!::INSTANCE.isInitialized) {
+            INSTANCE = Room.databaseBuilder(
+                context.applicationContext,
+                Videosdatabase::class.java, "videos"
+            ).build()
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
         }
     }
     return INSTANCE
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba1237c2ddc3dd4687252ca405fdc90a055e897f
