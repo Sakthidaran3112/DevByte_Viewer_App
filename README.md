@@ -32,6 +32,11 @@ To run the DevByte Viewer app on your local machine, follow these steps:
 2. Open the project in Android Studio.
 3. Build and run the app on an emulator or physical device.
 
+## Screenshots 
+
+### App homescreen
+![devbyte-homescreen](https://github.com/Sakthidaran3112/DevByte_Viewer_App/assets/113074664/39a5a826-9e53-490d-8a39-812d5d21b021)
+
 ## Contributing
 
 We welcome contributions to enhance and improve the DevByte Viewer app. Feel free to open issues for bug reports or submit pull requests for new features and fixes.
